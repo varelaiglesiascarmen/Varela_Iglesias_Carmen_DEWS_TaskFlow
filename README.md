@@ -2,12 +2,12 @@
 
 This repository contains the exercises and projects for the course **Web Development in Server-Side Environment**.  
 
-## 📝 Main Projects
+## Main Projects
 
-- **🚀 Task Flow:**  
+- **Task Flow:**  
   A PHP project developed progressively throughout the course.
 
-- **📒 Notebook:**  
+- **Notebook:**  
   Daily exercises and modules to learn and practice PHP.
 
 ## Autor
