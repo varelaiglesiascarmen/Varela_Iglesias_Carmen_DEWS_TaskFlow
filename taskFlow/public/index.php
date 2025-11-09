@@ -1,8 +1,6 @@
 <?php
-require_once 'functions.php';
-?>
+require_once '../app/functions.php';
 
-<?php
 define('SITE_NAME', 'Viaje en bici');
 $pageTitle = SITE_NAME . ' - Viaje en bici';
 $userName = 'Carmen';
@@ -17,11 +15,9 @@ $tasks = [
     ['title' => 'Llamar a mi madre', 'completed' => true, 'priority' => 'alta'],
 ];
 
-?>
-<!-- Llamar al header.php -->
-<?php include '../app/views/header.php'; ?>
+//  Llamar al header.php 
+include '../app/views/header.php'; ?>
 
-<main>
     <h2>Perfil de usuario</h2>
     <p><strong>Nombre:</strong> <?php echo $userName; ?></p>
     <p><strong>Edad:</strong> <?php echo $userAge; ?></p>
@@ -36,8 +32,6 @@ $tasks = [
         }
         ?>
     </ul>
-
-</main>
 
 <!-- Llamar al footer.php -->
 <?php include '../app/views/footer.php'; ?>
