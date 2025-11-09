@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios GET | POST</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <h1>Contacto</h1>
+
+    <form action="procesar_contacto.php" method="post">
+        <label for="nombre_contacto">Nombre:</label>
+        <input type="text" id="nombre_contacto" name="nombre_contacto" required>
+
+        <label for="email_contacto">Email:</label>
+        <input type="email" id="email_contacto" name="email_contacto" required>
+
+        <label for="mensaje_contacto">Mensaje:</label>
+        <textarea id="mensaje_contacto" name="mensaje_contacto" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+
+</html>
