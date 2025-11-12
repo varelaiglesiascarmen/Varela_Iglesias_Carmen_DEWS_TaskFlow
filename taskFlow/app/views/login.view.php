@@ -1,11 +1,14 @@
-<?php include '../app/views/header.php'; ?>
+<?php include 'header.php'; 
+include '../data.php';?>
 
-<form action="index.php?accion=login" method="post">
+<form action="tareas.view.php?accion=login" method="post">
     <h2>Iniciar Sesión</h2>
     <input type="email" name="email" placeholder="Correo electrónico" required>
     <input type="password" name="password" placeholder="Contraseña" required>
     <button type="submit">Entrar</button>
-    <?php if (isset($error)) {echo "<p style='color: red;'>";} ?>
+    <?php if (isset($error)) {
+        echo "<p style='color: red;'>";
+    } ?>
 </form>
 
-<?php include '../app/views/footer.php'; ?>
+<?php include 'footer.php'; ?>

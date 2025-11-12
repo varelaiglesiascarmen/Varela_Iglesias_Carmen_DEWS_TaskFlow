@@ -39,3 +39,71 @@ li:hover {
 .priority-baja {
     border-left-color: #22c55e;
 }
+
+/* Estilos para el formulario de inicio de sesión */
+form {
+    max-width: 400px;
+    margin: 3em auto;
+    padding: 2em;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+form h2 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 1.5em;
+    font-size: 1.5em;
+}
+
+form input {
+    padding: 0.8em;
+    margin-bottom: 1em;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1em;
+    background-color: #f8fafc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    background-color: #fff;
+}
+
+form button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.8em;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+form button:hover {
+    background-color: #2563eb;
+    transform: scale(1.02);
+}
+
+form p {
+    text-align: center;
+    color: #ef4444;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+/* Adaptación ligera para móviles */
+@media (max-width: 480px) {
+    form {
+        margin: 2em 1em;
+        padding: 1.5em;
+    }
+}
