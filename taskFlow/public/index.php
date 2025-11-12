@@ -1,37 +1,58 @@
 <?php
+// Cargar todas las herramientas necesarias
 require_once '../app/functions.php';
+require_once '../app/data.php';
+require_once '../app/controllers/AuthController.php';
 
-define('SITE_NAME', 'Viaje en bici');
-$pageTitle = SITE_NAME . ' - Viaje en bici';
-$userName = 'Carmen';
-$userAge = 26;
-$isPremiumUser = true;
+$accion = $_GET['accion'] ?? 'login';
 
-$tasks = [
-    ['title' => 'Aprender PHP', 'completed' => true, 'priority' => 'alta'],
-    ['title' => 'Hacer tareas de Luis', 'completed' => false, 'priority' => 'media'],
-    ['title' => 'Ver documental de Mari Carmen', 'completed' => false, 'priority' => 'baja'],
-    ['title' => 'Terminar logo del TFG', 'completed' => true, 'priority' => 'media'],
-    ['title' => 'Llamar a mi madre', 'completed' => true, 'priority' => 'alta'],
-];
+switch ($accion) {
+    case 'login':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
 
-//  Llamar al header.php 
-include '../app/views/header.php'; ?>
-
-    <h2>Perfil de usuario</h2>
-    <p><strong>Nombre:</strong> <?php echo $userName; ?></p>
-    <p><strong>Edad:</strong> <?php echo $userAge; ?></p>
-    <p><strong>Estado de la cuenta:</strong>Usuario<?php echo $isPremiumUser ? ' Premium' : ' Estándar'; ?></p>
-
-    <h3>Lista de tareas</h3>
-    <ul>
-        <?php
-        // llamar a la function renderizarTarea
-        foreach ($tasks as $task) {
-            echo renderizarTarea($task);
+            if (handleLogin($email, $password, $usuarios_bbdd)) {
+                header('Location: index.php?accion=dashboard');
+                exit();
+            } else {
+                $error = "Credenciales incorrectas.";
+            }
+        } else {
+            include '../app/views/login.view.php';
         }
-        ?>
-    </ul>
+        break;
 
-<!-- Llamar al footer.php -->
-<?php include '../app/views/footer.php'; ?>
+    case 'dashboard':
+        if (!checkAuth()) {
+            header('Location: index.php?accion=login');
+            exit();
+        }
+
+        $tareas = [
+            [
+                'titulo' => 'Implementar Login',
+                'completado' => true,
+                'prioridad' => 'alta'
+            ],
+            [
+                'titulo' => 'Añadir Pruebas Unitarias',
+                'completado' => false,
+                'prioridad' => 'media'
+            ]
+        ];
+
+        include '../app/views/tareas.view.php';
+        break;
+
+    case 'logout':
+        handleLogout();
+        break;
+
+    default:
+        echo "Error 404: Página no encontrada.";
+        break;
+
+}
+
+?>
