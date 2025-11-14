@@ -17,12 +17,13 @@ switch ($accion) {
                 header('Location: index.php?accion=dashboard');
                 exit();
             } else {
-                print("Login failed");
                 $error = "Credenciales incorrectas.";
             }
-        } else {
+        } 
+        
+        //else {
             include '../app/views/login.view.php';
-        }
+        //}
         break;
 
     case 'dashboard':
