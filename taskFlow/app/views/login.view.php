@@ -6,7 +6,7 @@ responde que sí le deja pasar y si no, lo redirige a login.view.php
 */
 ?>
 
-<form action="../../public/index.php?accion=login" method="POST">
+<form action="index.php?accion=login" method="POST">
     <h2>Iniciar Sesión</h2>
     <input type="email" name="email" placeholder="Correo electrónico" required>
     <input type="password" name="password" placeholder="Contraseña" required>
