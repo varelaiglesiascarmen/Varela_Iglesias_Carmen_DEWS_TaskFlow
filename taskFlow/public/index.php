@@ -13,17 +13,15 @@ switch ($accion) {
             $email = $_POST['email'];
             $password = $_POST['password'];
             if (handleLogin($email, $password, $usuarios_bbdd)) {
-                print("Login successful");
+                print ("Login successful");
                 header('Location: index.php?accion=dashboard');
                 exit();
             } else {
                 $error = "Credenciales incorrectas.";
             }
-        } 
-        
-        //else {
-            include '../app/views/login.view.php';
-        //}
+        }
+
+        include '../app/views/login.view.php';
         break;
 
     case 'dashboard':
