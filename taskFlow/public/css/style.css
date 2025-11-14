@@ -28,15 +28,20 @@ li:hover {
     transform: translateX(5px);
 }
 
-.priority-alta {
+.completado {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.prioridad-alta {
     border-left-color: #ef4444;
 }
 
-.priority-media {
+.prioridad-media {
     border-left-color: #f59e0b;
 }
 
-.priority-baja {
+.prioridad-baja {
     border-left-color: #22c55e;
 }
 
